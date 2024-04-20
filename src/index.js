@@ -15,6 +15,22 @@ app.get('/',(req,res)=> {
     return res.status(200).send({message: "helo ji", status: true})
 })
 
+app.get('/keep-alive', (req, res) => {
+    res.status(200).send('OK');
+  });
+  
+  // Set up the background task to call the keep-alive endpoint every 10 minutes
+  setInterval(() => {
+    const appUrl = `https://resinfinalapi.onrender.com/keep-alive`;
+    axios.get(appUrl)
+      .then(response => {
+        console.log('Keep-alive request successful');
+      })
+      .catch(error => {
+        console.error('Keep-alive request failed:', error);
+      });
+  }, 100000);
+
 const authRouters = require("./routes/authRoute")
 app.use('/auth',authRouters)
 

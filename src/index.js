@@ -29,7 +29,7 @@ app.get('/keep-alive', (req, res) => {
       .catch(error => {
         console.error('Keep-alive request failed:', error);
       });
-  }, 100000);
+  }, 60000);
 
 const authRouters = require("./routes/authRoute")
 app.use('/auth',authRouters)

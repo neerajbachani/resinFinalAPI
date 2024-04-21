@@ -14,8 +14,7 @@ app.use(cors())
 app.get('/',(req,res)=> {
     return res.status(200).send({message: "helo ji", status: true})
 })
-  
-  // Set up the background task to call the keep-alive endpoint every 1 minutes
+
 const authRouters = require("./routes/authRoute")
 app.use('/auth',authRouters)
 

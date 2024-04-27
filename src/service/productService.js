@@ -101,7 +101,7 @@ async function getAllProducts(reqQuery) {
         }
     }
     if (sort) {
-        const sortDirection = sort === "price_hight" ? -1 : 1;
+        const sortDirection = sort === "price_high" ? -1 : 1;
         query = query.sort({ discountedPrice: sortDirection });
     }
     
